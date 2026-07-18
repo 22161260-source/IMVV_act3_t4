@@ -17,32 +17,30 @@ Aplicación web desarrollada con **Laravel 12** para administrar productos media
 # 🌷 Vista previa
 
 <p align="center">
-<img src="captura.png" width="900">
+<img width="697" height="531" alt="image" src="https://github.com/user-attachments/assets/4ac11356-d5dd-48e7-896d-4d0dcc61a4ed" />
 </p>
-
-> Guarda tu imagen con el nombre **captura.png** dentro del repositorio para que aparezca automáticamente.
 
 ---
 
-# ✨ Características
+#  Características
 
 💖 CRUD completo de productos
 
-📂 Gestión de categorías
+💖 Gestión de categorías
 
-🏷️ Gestión de etiquetas
+💖 Gestión de etiquetas
 
-📄 Paginación automática
+💖 Paginación automática
 
-🎨 Diseño moderno con Bootstrap 5
+💖 Diseño moderno con Bootstrap 5
 
-⚡ Eloquent ORM
+💖 Eloquent ORM
 
-🗄️ Base de datos MySQL
+💖 Base de datos MySQL
 
 ---
 
-# 🏗️ Arquitectura
+#  Arquitectura
 
 ## Modelos
 
@@ -78,7 +76,7 @@ Categoría
 
 ---
 
-# 🚀 Instalación
+#  Instalación
 
 ## 1️⃣ Clonar repositorio
 
@@ -105,52 +103,10 @@ Generar la clave:
 php artisan key:generate
 ```
 
----
-
-# 🗄️ Configuración de MySQL
-
-Editar el archivo `.env`
-
-```env
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=peliculas_db
-DB_USERNAME=root
-DB_PASSWORD=
-```
-
-Crear la base de datos:
-
-```sql
-CREATE DATABASE peliculas_db;
-```
 
 ---
 
-# ⚙️ Migraciones
-
-```bash
-php artisan migrate --seed
-```
-
----
-
-# ▶️ Ejecutar
-
-```bash
-php artisan serve
-```
-
-Abrir en el navegador:
-
-```
-http://127.0.0.1:8000
-```
-
----
-
-# 📌 Rutas
+#  Rutas
 
 | Método | Ruta | Acción |
 |---------|------|---------|
@@ -164,7 +120,7 @@ http://127.0.0.1:8000
 
 ---
 
-# 🎨 Diseño
+#  Diseño
 
 La aplicación utiliza una interfaz moderna basada en una paleta de colores rosa.
 
@@ -186,14 +142,14 @@ Los componentes incluyen:
 
 # 🛠️ Tecnologías
 
-- 🌸 Laravel 12
-- 🐘 PHP 8.2
-- 🗄️ MySQL
-- 🎨 Bootstrap 5
-- 📦 Eloquent ORM
-- 🧩 Blade
-- 🏷️ Bootstrap Icons
-- 🌱 Seeders y Factories
+- 💖 Laravel 12
+- 💖 PHP 8.2
+- 💖 MySQL
+- 💖 Bootstrap 5
+- 💖 Eloquent ORM
+- 💖 Blade
+- 💖 Bootstrap Icons
+- 💖 Seeders y Factories
 
 ---
 
