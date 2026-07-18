@@ -1,80 +1,115 @@
-# TiendaApp — Laravel 12 CRUD
+<div align="center">
 
-**Sistema de gestión de productos con paleta rosa profesional**
+# 🌸 TiendaApp
+### Sistema de Gestión de Productos
 
-Aplicación web desarrollada en **Laravel 12** para gestionar productos, categorías y etiquetas con un CRUD completo, diseño moderno y una configuración lista para MySQL.
+<img src="https://img.shields.io/badge/Laravel-12-FF2D20?style=for-the-badge&logo=laravel&logoColor=white">
+<img src="https://img.shields.io/badge/PHP-8.2-777BB4?style=for-the-badge&logo=php&logoColor=white">
+<img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white">
+<img src="https://img.shields.io/badge/Bootstrap-5-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white">
 
----
+Aplicación web desarrollada con **Laravel 12** para administrar productos mediante un CRUD completo, con una interfaz moderna y elegante en tonos rosa.
 
-## Resumen del proyecto
-
-TiendaApp es una aplicación de ejemplo que permite:
-
-- Crear, listar, ver, editar y eliminar productos.
-- Gestionar la relación **Producto → Categoría** (uno a muchos).
-- Gestionar la relación **Producto ↔ Etiqueta** (muchos a muchos).
-- Navegar productos con paginación optimizada.
-- Usar Bootstrap 5 y estilos rosas para un diseño limpio y profesional.
-- Cargar datos de muestra mediante seeders y factories.
+</div>
 
 ---
 
-## Arquitectura y flujo
+# 🌷 Vista previa
 
-### Estructura principal
+<p align="center">
+<img src="captura.png" width="900">
+</p>
+
+> Guarda tu imagen con el nombre **captura.png** dentro del repositorio para que aparezca automáticamente.
+
+---
+
+# ✨ Características
+
+💖 CRUD completo de productos
+
+📂 Gestión de categorías
+
+🏷️ Gestión de etiquetas
+
+📄 Paginación automática
+
+🎨 Diseño moderno con Bootstrap 5
+
+⚡ Eloquent ORM
+
+🗄️ Base de datos MySQL
+
+---
+
+# 🏗️ Arquitectura
+
+## Modelos
 
 | Modelo | Descripción |
-|---|---|
-| `Product` | Producto con nombre, descripción, precio y categoría.
-| `Category` | Categoría que agrupa productos.
-| `Tag` | Etiqueta reusable para productos.
-| `product_tag` | Tabla pivote para la relación muchos a muchos.
-
-### Relación de datos
-
-- `Product` pertenece a `Category`.
-- `Category` tiene muchos `Product`.
-- `Product` tiene muchas `Tag`.
-- `Tag` pertenece a muchos `Product`.
-
-### Comportamiento implementado
-
-- `ProductController` gestiona el CRUD completo.
-- El listado usa `paginate(8)` para mostrar resultados paginados.
-- El detalle del producto carga categoría y etiquetas relacionadas.
-- El seeder genera 25 productos de prueba con categorías y etiquetas.
+|---------|-------------|
+| 📦 Product | Información del producto |
+| 📂 Category | Categorías disponibles |
+| 🏷️ Tag | Etiquetas reutilizables |
+| 🔗 product_tag | Relación muchos a muchos |
 
 ---
 
-## Instalación y configuración
+## Relaciones
 
-### Requisitos
+```
+Categoría
+    │
+    │ 1
+    │
+    ▼
+ Producto
+    ▲
+    │
+    │ N
+    │
+ Etiquetas
+```
 
-- PHP 8.2 o superior
-- Composer
-- MySQL 8.0 o superior
-- Node.js / npm (opcional para assets)
+- Un producto pertenece a una categoría.
+- Una categoría tiene muchos productos.
+- Un producto puede tener muchas etiquetas.
+- Una etiqueta puede pertenecer a muchos productos.
 
-### Instalación rápida
+---
+
+# 🚀 Instalación
+
+## 1️⃣ Clonar repositorio
 
 ```bash
-# Clonar el repositorio
 git clone <url-del-repo>
 cd IMVVCact3_t4
+```
 
-# Instalar dependencias de PHP
+## 2️⃣ Instalar dependencias
+
+```bash
 composer install
+```
 
-# Copiar el entorno
+## 3️⃣ Configurar entorno
+
+```bash
 copy .env.example .env
+```
 
-# Generar clave de aplicación
+Generar la clave:
+
+```bash
 php artisan key:generate
 ```
 
-### Configurar la base de datos
+---
 
-Edita `.env` y define tus credenciales MySQL:
+# 🗄️ Configuración de MySQL
+
+Editar el archivo `.env`
 
 ```env
 DB_CONNECTION=mysql
@@ -82,75 +117,94 @@ DB_HOST=127.0.0.1
 DB_PORT=3306
 DB_DATABASE=peliculas_db
 DB_USERNAME=root
-DB_PASSWORD=tu_password
+DB_PASSWORD=
 ```
 
-Crea la base de datos en MySQL:
+Crear la base de datos:
 
-```bash
-mysql -u root -p -e "CREATE DATABASE peliculas_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
+```sql
+CREATE DATABASE peliculas_db;
 ```
 
-### Ejecutar migraciones y seeders
+---
+
+# ⚙️ Migraciones
 
 ```bash
 php artisan migrate --seed
 ```
 
-### Iniciar el servidor
+---
+
+# ▶️ Ejecutar
 
 ```bash
 php artisan serve
 ```
 
-Abre la app en:
+Abrir en el navegador:
 
-```bash
+```
 http://127.0.0.1:8000
 ```
 
 ---
 
-## Rutas principales
+# 📌 Rutas
 
-| Método | Ruta | Descripción |
-|---|---|---|
-| GET | `/` | Listado principal de productos |
-| GET | `/productos/create` | Formulario para crear producto |
-| POST | `/productos` | Guardar nuevo producto |
-| GET | `/productos/{producto}` | Ver detalle de producto |
-| GET | `/productos/{producto}/edit` | Editar producto |
-| PUT/PATCH | `/productos/{producto}` | Actualizar producto |
-| DELETE | `/productos/{producto}` | Eliminar producto |
-
----
-
-## Estilo y UI
-
-La interfaz usa una paleta de rosas desde un rosa fuerte hasta tonos suaves, con fondo blanco y componentes bien espaciados:
-
-- Colores principales: `#d946ef`, `#c026d3`, `#ec4899`
-- Fondo blanco para mejorar contraste y lectura.
-- Botones y tarjetas con sombras suaves y bordes redondeados.
-- Tipografía `Inter` para modernidad y claridad.
+| Método | Ruta | Acción |
+|---------|------|---------|
+| GET | / | Listar productos |
+| GET | /productos/create | Crear producto |
+| POST | /productos | Guardar producto |
+| GET | /productos/{id} | Mostrar producto |
+| GET | /productos/{id}/edit | Editar producto |
+| PUT | /productos/{id} | Actualizar producto |
+| DELETE | /productos/{id} | Eliminar producto |
 
 ---
 
-## Tecnologías utilizadas
+# 🎨 Diseño
 
-- **Laravel 12**
-- **MySQL**
-- **Bootstrap 5**
-- **Bootstrap Icons**
-- **Blade templates**
-- **Eloquent ORM**
-- **Factories y Seeders**
+La aplicación utiliza una interfaz moderna basada en una paleta de colores rosa.
+
+🌸 Rosa principal
+
+💜 Morado
+
+🤍 Blanco
+
+Los componentes incluyen:
+
+- Tarjetas con sombras suaves
+- Botones redondeados
+- Tabla responsiva
+- Tipografía moderna
+- Iconos Bootstrap Icons
 
 ---
 
-## Notas adicionales
+# 🛠️ Tecnologías
 
-- El proyecto ya incluye 25 productos de prueba.
-- La ruta principal (`/`) muestra el listado de productos.
-- El diseño fue personalizado para una apariencia rosa profesional y clara.
+- 🌸 Laravel 12
+- 🐘 PHP 8.2
+- 🗄️ MySQL
+- 🎨 Bootstrap 5
+- 📦 Eloquent ORM
+- 🧩 Blade
+- 🏷️ Bootstrap Icons
+- 🌱 Seeders y Factories
 
+---
+
+<div align="center">
+
+## 💕 Desarrollado por
+
+### **VARGAS VICENTE IVONEE MONTSERRAT**
+
+Proyecto académico desarrollado con Laravel 12.
+
+⭐ Si te gusta este proyecto, ¡no olvides darle una estrella!
+
+</div>
